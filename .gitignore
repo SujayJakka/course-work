@@ -44,3 +44,6 @@
 **/*.log
 **/logs/
 
+# HTML files
+**/*.html
+
