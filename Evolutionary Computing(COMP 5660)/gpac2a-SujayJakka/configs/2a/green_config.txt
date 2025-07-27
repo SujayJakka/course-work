@@ -1,0 +1,23 @@
+[pac_init]
+depth_limit = 7
+constant_range = (-35, 35)
+prob_of_full_method = 0.50
+
+# Feel free to change this to a different representation,
+# such as directly storing references to a function or class,
+# like how we specified selection algorithms in series 1.
+# Note you don't HAVE to use these variables, though we recommend it.
+# You could instead hardcode your primitive set, if you wish.
+terminals = ('G', 'P', 'F', 'W', 'C')
+nonterminals = ('+', '-', '*', '/', 'RAND')
+
+
+# Don't touch any of these
+[game]
+game_map = map.txt
+pill_spawn = waves
+pill_density = 1/3
+fruit_prob = 1/75
+fruit_score = 10
+fruit_spawn = corners_spawned
+time_multiplier = 2.5

@@ -22,6 +22,7 @@
 # OS junk files
 **/.DS_Store
 **/Thumbs.db
+**/*Zone.Identifier
 
 # Jupyter Notebook checkpoints
 **/.ipynb_checkpoints/
@@ -38,3 +39,8 @@
 **/dist/
 **/*.egg-info/
 **/.eggs/
+
+# Log files
+**/*.log
+**/logs/
+

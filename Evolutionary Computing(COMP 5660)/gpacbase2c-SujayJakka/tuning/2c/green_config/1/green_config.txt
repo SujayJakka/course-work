@@ -1,0 +1,85 @@
+[shared_configs]
+depth_limit = 7
+prob_of_full_method = 0.50
+constant_range = (-35, 35)
+nonterminals = ('+', '-', '*', '/', 'RAND')
+
+[fitness_kwargs]
+pac_parsimony_coefficient = 1/10
+ghost_parsimony_coefficient = 1/10
+sample_size = 6
+experiment = green
+
+[pac_ea]
+mu = 50
+num_children = 10
+mutation_rate = 0.1
+parent_selection = k_tournament_with_replacement
+survival_selection = k_tournament_without_replacement
+individual_class = TreeGenotype
+
+[pac_parent_selection_kwargs]
+k = 5
+
+[pac_survival_selection_kwargs]
+k = 5
+
+[pac_problem]
+terminals = ('G', 'P', 'F', 'W', 'C')
+depth_limit = ${shared_configs:depth_limit}
+nonterminals = ${shared_configs:nonterminals}
+prob_of_full_method = ${shared_configs:prob_of_full_method}
+constant_range = ${shared_configs:constant_range}
+
+[ghost_ea]
+mu = 30
+num_children = 5
+mutation_rate = 0.2
+parent_selection = k_tournament_with_replacement
+survival_selection = k_tournament_without_replacement
+individual_class = TreeGenotype
+
+[ghost_parent_selection_kwargs]
+k = 3
+
+[ghost_survival_selection_kwargs]
+k = 3
+
+[ghost_problem]
+terminals = ('G', 'P', 'F', 'W', 'M', 'C')
+depth_limit = ${shared_configs:depth_limit}
+nonterminals = ${shared_configs:nonterminals}
+prob_of_full_method = ${shared_configs:prob_of_full_method}
+constant_range = ${shared_configs:constant_range}
+
+# Don't touch any of these.
+[game]
+game_map = map.txt
+pill_spawn = waves
+pill_density = 1/3
+fruit_prob = 1/75
+fruit_score = 10
+fruit_spawn = corners_spawned
+time_multiplier = 2.5
+
+[pac_recombination_kwargs]
+depth_limit = ${pac_problem:depth_limit}
+terminals = ${pac_problem:terminals}
+nonterminals = ${pac_problem:nonterminals}
+
+[pac_mutation_kwargs]
+depth_limit = ${pac_problem:depth_limit}
+constant_range = ${shared_configs:constant_range}
+terminals = ${pac_problem:terminals}
+nonterminals = ${pac_problem:nonterminals}
+
+[ghost_recombination_kwargs]
+depth_limit = ${ghost_problem:depth_limit}
+terminals = ${ghost_problem:terminals}
+nonterminals = ${ghost_problem:nonterminals}
+
+[ghost_mutation_kwargs]
+depth_limit = ${ghost_problem:depth_limit}
+constant_range = ${shared_configs:constant_range}
+terminals = ${ghost_problem:terminals}
+nonterminals = ${ghost_problem:nonterminals}

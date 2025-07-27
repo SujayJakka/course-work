@@ -1,0 +1,10 @@
+name: EC-env
+channels:
+  - defaults
+dependencies:
+  - python=3.11
+  - matplotlib
+  - numpy
+  - jupyter
+  - scipy
+  - ipympl

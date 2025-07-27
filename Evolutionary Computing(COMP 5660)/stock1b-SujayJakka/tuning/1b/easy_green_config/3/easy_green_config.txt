@@ -1,0 +1,40 @@
+[ea]
+# mu value for around 100 valid solutions, old value 99_000
+mu = 30_000
+# increasing children from 50 to 500, increasing recombination by a factor of 10 per generation
+num_children = 500
+# mutation_rate .001, 100 times more likely than the previous value .00001
+mutation_rate = 0.001
+parent_selection = k_tournament_with_replacement
+survival_selection = k_tournament_without_replacement
+# Don't touch this
+individual_class = LinearGenotype
+
+[recombination_kwargs]
+# One point crossover, preserve positional bias, old method uniform
+method = one-point
+prob_selecting_parent_1_gene = 0.5
+
+[parent_selection_kwargs]
+# Increase k from 1 to 75, increasing parent selection pressure
+k = 75
+
+[survival_selection_kwargs]
+# Increase k from 1 to 100, increasing survival pressure
+k = 100
+
+[mutation_kwargs]
+bonus = False
+prob_random_reset = .1
+mean_of_change_dist = 0
+std_of_change_dist = 1
+# Don't touch this
+bounds = ${problem:bounds}
+
+# Don't touch any of these
+[problem]
+visible_margin = 3
+failure_fitness = -50
+minimize_area = False
+bounds = ((0, 50), (0, 15))
+shapes = [[(-2, 1), (-2, 0), (-1, 0), (-2, -1), (0, 0), (1, 0), (2, 0), (0, 1), (1, 1), (0, 2), (3, 0)], [(0, -1), (0, 0), (1, -1), (0, 1), (0, 2), (2, -1), (-1, -1), (-1, 1)], [(1, 0), (0, 0), (0, 1), (1, -1), (0, -1), (1, 1), (0, 2), (0, -2), (0, 3), (0, -3), (1, -2), (1, 3), (1, -3), (1, 2)], [(0, -1), (0, 0), (0, 1), (1, 1), (1, -1)], [(0, -1), (0, 0), (1, -1), (2, -1), (3, -1), (-1, 0), (-1, 1), (-2, 0), (-1, -1)], [(1, 1), (2, 1), (2, 0), (1, 0), (0, 1), (-1, 1)], [(1, 1), (2, 1), (2, 0), (0, 1), (0, 0), (-1, 1), (-2, 1), (-2, 0)], [(-2, 1), (-1, 1), (0, 1), (1, 1), (-1, 2), (1, 2), (0, 0), (2, 1), (-1, 0), (-1, -1), (2, 0), (-2, -1), (1, 0), (-2, 0)], [(0, 0), (0, -1), (1, 0), (0, 1), (2, 0), (1, 1), (0, 2), (1, 2), (1, 3), (-1, 2), (2, 2), (-1, 0), (0, -2), (1, -1), (1, -2), (-1, -1)], [(0, 1), (1, 1), (-1, 1), (1, 0), (1, -1), (2, 1), (0, -1)]]
